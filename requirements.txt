@@ -1,0 +1,7 @@
+pandas
+numpy
+scipy 
+matplotlib
+tqdm 
+ipython
+alpaca_trade_apirequirement

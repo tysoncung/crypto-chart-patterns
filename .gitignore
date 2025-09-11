@@ -1,1 +1,47 @@
-.ipynb*
+# Jupyter Notebook
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Data files
+*.csv
+*.xlsx
+*.json
+data/
+
+# Output files
+*.png
+*.jpg
+*.pdf
+plots/
+results/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+*~
+
+# Environment
+.env
+.env.local
+
+# Logs
+*.log
+logs/

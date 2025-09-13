@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Test suite for crypto chart pattern detection
 """

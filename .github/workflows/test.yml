@@ -29,17 +29,9 @@ jobs:
         pip install -r requirements.txt
         pip install pytest pytest-cov
     
-    - name: Run tests with coverage
+    - name: Run tests
       run: |
-        pytest test_patterns.py -v --cov=pattern_detector --cov=enhanced_patterns --cov-report=xml --cov-report=term
-    
-    - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v3
-      with:
-        file: ./coverage.xml
-        flags: unittests
-        name: codecov-umbrella
-        fail_ci_if_error: false
+        python -m unittest discover -v -s . -p "test_*.py"
 
   demo:
     runs-on: ubuntu-latest

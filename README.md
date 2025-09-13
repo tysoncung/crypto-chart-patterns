@@ -10,18 +10,28 @@ This project implements comprehensive pattern recognition algorithms to identify
 
 ## 🚀 Features
 
-### Basic Patterns
+**22 Chart Patterns & Technical Indicators**
+
+### Basic Patterns (4)
 - **Inverse Head and Shoulders (IHS)** - Bullish reversal
 - **Head and Shoulders (HS)** - Bearish reversal  
 - **Double Top (DT)** - Bearish reversal
 - **Double Bottom (DB)** - Bullish reversal
 
-### Enhanced Patterns
+### Enhanced Patterns (11)
 - **Triangle Patterns** - Ascending, Descending, Symmetrical
 - **Wedge Patterns** - Rising (bearish), Falling (bullish)
 - **Flag Patterns** - Bull flags, Bear flags
 - **Channel Patterns** - Ascending, Descending, Horizontal
 - **Cup and Handle** - Bullish continuation
+
+### Advanced Indicators (7)
+- **Andrews' Pitchfork** - Dynamic support/resistance channels
+- **Average True Range (ATR)** - Market volatility measurement
+- **Fibonacci Analysis** - Retracements and extensions
+- **Ichimoku Cloud** - Complete trend following system
+- **Pivot Points** - Multiple calculation methods
+- **Three Drive Pattern** - Harmonic reversal pattern
 
 ### Capabilities
 - Real-time cryptocurrency data fetching from Binance
@@ -146,6 +156,15 @@ This project uses GitHub Actions for continuous integration:
 
 ### Special Patterns
 15. **Cup and Handle** - Bullish continuation (U-shape with handle)
+
+### Advanced Technical Analysis Indicators
+16. **Andrews' Pitchfork** - Three parallel trend lines for support/resistance
+17. **Average True Range (ATR)** - Volatility indicator
+18. **Fibonacci Retracements** - Key levels at 23.6%, 38.2%, 50%, 61.8%, 78.6%
+19. **Fibonacci Extensions** - Projection levels at 127.2%, 161.8%, 261.8%
+20. **Ichimoku Cloud** - Comprehensive trend following system
+21. **Pivot Points** - Daily support/resistance levels (Classic, Fibonacci, Camarilla)
+22. **Three Drive Pattern** - Reversal pattern with Fibonacci relationships
 
 ## ⚠️ Disclaimer
 

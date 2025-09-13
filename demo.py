@@ -6,9 +6,11 @@ Shows how to use the pattern detector and enhanced patterns
 
 import json
 import argparse
+import pandas as pd
 from datetime import datetime
 from pattern_detector import PatternDetector
 from enhanced_patterns import EnhancedPatternDetector
+from advanced_patterns import AdvancedPatternDetector
 
 def run_demo(symbol="BTCUSDT", interval="1h", save_results=True, plot=True):
     """
@@ -27,6 +29,7 @@ def run_demo(symbol="BTCUSDT", interval="1h", save_results=True, plot=True):
     # Initialize detectors
     detector = PatternDetector(symbol, interval)
     enhanced = EnhancedPatternDetector()
+    advanced = AdvancedPatternDetector()
     
     # Fetch data
     print("1. Fetching market data...")
@@ -59,8 +62,32 @@ def run_demo(symbol="BTCUSDT", interval="1h", save_results=True, plot=True):
         if occurrences:
             print(f"   • {pattern}: {len(occurrences)} occurrences")
     
+    # Detect advanced patterns
+    print("\n5. Detecting advanced patterns...")
+    advanced_patterns = advanced.detect_all_advanced_patterns(prices, max_min)
+    print("   Advanced patterns found:")
+    for pattern, occurrences in advanced_patterns.items():
+        if occurrences:
+            desc = advanced.get_pattern_description(pattern)
+            print(f"   • {pattern}: {len(occurrences)} occurrences")
+            print(f"     {desc}")
+    
+    # Show indicators
+    if hasattr(advanced, 'indicators'):
+        print("\n6. Technical Indicators:")
+        if 'atr' in advanced.indicators:
+            current_atr = advanced.indicators['atr'].iloc[-1]
+            if not pd.isna(current_atr):
+                print(f"   • ATR (14): {current_atr:.2f}")
+        
+        if 'pivot_points' in advanced.indicators:
+            pivots = advanced.indicators['pivot_points']['classic']
+            print(f"   • Pivot Point: {pivots['P']:.2f}")
+            print(f"   • Resistance 1: {pivots['R1']:.2f}")
+            print(f"   • Support 1: {pivots['S1']:.2f}")
+    
     # Calculate returns
-    print("\n5. Calculating pattern returns...")
+    print("\n7. Calculating pattern returns...")
     all_patterns = {**basic_patterns, **enhanced_patterns}
     if any(all_patterns.values()):
         returns = detector.calculate_returns(prices, all_patterns)
@@ -101,7 +128,7 @@ def run_demo(symbol="BTCUSDT", interval="1h", save_results=True, plot=True):
     
     # Plot if requested
     if plot and any(all_patterns.values()):
-        print("\n6. Generating visualization...")
+        print("\n8. Generating visualization...")
         detector.plot_patterns(prices, max_min, all_patterns, save=True)
     
     print(f"\n{'='*60}")

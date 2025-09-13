@@ -1,0 +1,1 @@
+# Crypto Chart Pattern Detector Package

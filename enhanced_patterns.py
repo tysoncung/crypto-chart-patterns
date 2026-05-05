@@ -30,19 +30,20 @@ class EnhancedPatternDetector:
             if window.index[-1] - window.index[0] > 50:
                 continue
             
-            # Get highs and lows
+            # Get highs and lows by comparing each extremum to its neighbors in max_min
             highs = []
             lows = []
-            for idx in window.index:
-                if idx > 0:
-                    prev_val = max_min.iloc[idx-1] if idx-1 in max_min.index else None
-                    next_val = max_min.iloc[idx+1] if idx+1 < len(max_min) else None
-                    
-                    if prev_val is not None and next_val is not None:
-                        if max_min.iloc[idx] > prev_val and max_min.iloc[idx] > next_val:
-                            highs.append(max_min.iloc[idx])
-                        elif max_min.iloc[idx] < prev_val and max_min.iloc[idx] < next_val:
-                            lows.append(max_min.iloc[idx])
+            for j in range(len(window)):
+                pos = (i - 4) + j
+                val = max_min.iloc[pos]
+                prev_val = max_min.iloc[pos - 1] if pos > 0 else None
+                next_val = max_min.iloc[pos + 1] if pos + 1 < len(max_min) else None
+
+                if prev_val is not None and next_val is not None:
+                    if val > prev_val and val > next_val:
+                        highs.append(val)
+                    elif val < prev_val and val < next_val:
+                        lows.append(val)
             
             if len(highs) >= 2 and len(lows) >= 2:
                 # Ascending Triangle: flat top, rising bottom

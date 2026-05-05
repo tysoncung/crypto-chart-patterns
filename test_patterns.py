@@ -18,7 +18,7 @@ class TestPatternDetector(unittest.TestCase):
         self.enhanced_detector = EnhancedPatternDetector()
         
         # Create synthetic price data for testing
-        dates = pd.date_range(start='2024-01-01', periods=100, freq='H')
+        dates = pd.date_range(start='2024-01-01', periods=100, freq='h')
         self.test_prices = pd.DataFrame({
             't': dates,
             'o': np.random.randn(100).cumsum() + 100,
@@ -61,7 +61,7 @@ class TestPatternDetector(unittest.TestCase):
     def test_pattern_detection(self):
         """Test basic pattern detection"""
         # Create synthetic data with known pattern
-        dates = pd.date_range(start='2024-01-01', periods=50, freq='H')
+        dates = pd.date_range(start='2024-01-01', periods=50, freq='h')
         
         # Create inverse head and shoulders pattern
         values = []
@@ -100,7 +100,7 @@ class TestPatternDetector(unittest.TestCase):
     def test_triangle_pattern_detection(self):
         """Test triangle pattern detection"""
         # Create synthetic triangle pattern
-        dates = pd.date_range(start='2024-01-01', periods=30, freq='H')
+        dates = pd.date_range(start='2024-01-01', periods=30, freq='h')
         
         # Ascending triangle: flat top, rising bottom
         highs = [100] * 30  # Flat resistance
@@ -133,7 +133,7 @@ class TestPatternDetector(unittest.TestCase):
     def test_wedge_pattern_detection(self):
         """Test wedge pattern detection"""
         # Create synthetic wedge pattern
-        dates = pd.date_range(start='2024-01-01', periods=25, freq='H')
+        dates = pd.date_range(start='2024-01-01', periods=25, freq='h')
         
         # Rising wedge: converging upward
         values = []
@@ -152,7 +152,7 @@ class TestPatternDetector(unittest.TestCase):
     def test_flag_pattern_detection(self):
         """Test flag pattern detection"""
         # Create synthetic flag pattern
-        dates = pd.date_range(start='2024-01-01', periods=30, freq='H')
+        dates = pd.date_range(start='2024-01-01', periods=30, freq='h')
         
         # Bull flag: strong upward move followed by slight consolidation
         values = []
@@ -182,7 +182,7 @@ class TestPatternDetector(unittest.TestCase):
     def test_channel_pattern_detection(self):
         """Test channel pattern detection"""
         # Create synthetic channel pattern
-        dates = pd.date_range(start='2024-01-01', periods=40, freq='H')
+        dates = pd.date_range(start='2024-01-01', periods=40, freq='h')
         
         # Ascending channel
         values = []
@@ -210,7 +210,7 @@ class TestPatternDetector(unittest.TestCase):
     def test_cup_and_handle_detection(self):
         """Test cup and handle pattern detection"""
         # Create synthetic cup and handle pattern
-        dates = pd.date_range(start='2024-01-01', periods=45, freq='H')
+        dates = pd.date_range(start='2024-01-01', periods=45, freq='h')
         
         # Cup and handle: U-shape followed by small consolidation
         values = []

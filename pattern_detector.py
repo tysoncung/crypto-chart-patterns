@@ -150,7 +150,23 @@ class PatternDetector:
             patterns: Detected patterns
             save: Whether to save the plot
         """
-        colors = {'IHS': 'green', 'DT': 'red', 'DB': 'blue', 'HS': 'orange'}
+        colors = {
+            'HS': 'orange',
+            'IHS': 'green',
+            'DB': 'blue',
+            'DT': 'red',
+            'ASCENDING_TRIANGLE': 'cyan',
+            'DESCENDING_TRIANGLE': 'magenta',
+            'SYMMETRICAL_TRIANGLE': 'gold',
+            'RISING_WEDGE': 'brown',
+            'FALLING_WEDGE': 'purple',
+            'BULL_FLAG': 'teal',
+            'BEAR_FLAG': 'navy',
+            'ASCENDING_CHANNEL': 'olive',
+            'DESCENDING_CHANNEL': 'deeppink',
+            'HORIZONTAL_CHANNEL': 'gray',
+            'CUP_AND_HANDLE': 'darkgreen',
+        }
         
         if len(patterns) == 0:
             print("No patterns found")
